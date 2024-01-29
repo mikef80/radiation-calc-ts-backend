@@ -1,11 +1,14 @@
-const express = require('express');
+const express = require("express");
+const cors = require("cors");
+const apiRouter = require("./routes/api-router");
+
 const app = express();
-const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-});
+app.use(express.json());
 
-app.listen(port, () => {
-  console.log(`App listening on port ${port}...`);
-})
+const corsOptions = { origin: "http://locahost:9090" };
+
+app.use(cors(corsOptions));
+app.use("/api", apiRouter);
+
+module.exports = app;
