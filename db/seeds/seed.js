@@ -8,10 +8,11 @@ const seed = ({ userData }) => {
     .then(() => {
       const usersTablePromise = db.query(`
       CREATE TABLE users (
+        id SERIAL,
         firstname VARCHAR NOT NULL,
         lastname VARCHAR NOT NULL,
         email VARCHAR PRIMARY KEY,
-        password VARCHAR NOT NULL
+        hashed_password VARCHAR NOT NULL
       );`);
 
       return Promise.all([usersTablePromise]);
@@ -19,12 +20,12 @@ const seed = ({ userData }) => {
 
     .then(() => {
       const insertUsersQueryStr = format(
-        "INSERT INTO users ( firstname, lastname, email, password) VALUES %L;",
-        userData.map(({ firstname, lastname, email, password }) => [
+        "INSERT INTO users ( firstname, lastname, email, hashed_password) VALUES %L;",
+        userData.map(({ firstname, lastname, email, hashed_password }) => [
           firstname,
           lastname,
           email,
-          password,
+          hashed_password,
         ])
       );
       const usersPromise = db.query(insertUsersQueryStr);

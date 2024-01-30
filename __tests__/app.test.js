@@ -8,10 +8,20 @@ beforeEach(() => seed({ userData }));
 afterAll(() => db.end());
 
 describe("/api/auth/signup", () => {
-  it("POST 200 returns something", () => {
+  const user = {
+    firstname: "Quentin",
+    lastname: "Blake",
+    email: "qblake@gmail.com",
+    password: "123456789",
+  };
+
+  it("POST 201 returns new user object", () => {
     return request(app)
-      .get("/api/auth/login")
-      .expect(200)
-      .then(({ body }) => console.log(body));
+      .post("/api/auth/signup")
+      .send(user)
+      .expect(201)
+      .then(({ body }) => {
+        expect(body.user).toContainKeys(["firstname", "lastname", "email"]);
+      });
   });
 });
