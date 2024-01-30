@@ -1,9 +1,9 @@
 const { signupUser } = require("../models/auth-models");
 
 exports.signup = async (req, res, next) => {
-  const { email } = req.body;
+  const { firstname, lastname, email, password } = req.body;
 
-  signupUser(email).then((user) => {
+  signupUser({firstname, lastname, email, password}).then((user) => {
     res.status(200).send({ user });
   });
 };
