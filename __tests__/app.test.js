@@ -7,7 +7,7 @@ const seed = require("../db/seeds/seed");
 beforeEach(() => seed({ userData }));
 afterAll(() => db.end());
 
-describe("/api/auth/login", () => {
+describe("/api/auth/signup", () => {
   it("POST 200 returns something", () => {
     return request(app)
       .get("/api/auth/login")
