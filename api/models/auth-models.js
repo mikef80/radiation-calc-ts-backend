@@ -29,7 +29,7 @@ exports.signupUser = async ({ firstname, lastname, email, password }) => {
         (firstname, lastname, email, hashed_password)
       VALUES
         ($1, $2, $3, $4)
-      RETURNING firstname, lastname, email;`,
+      RETURNING id,firstname, lastname, email;`,
         [firstname, lastname, email, hashedPassword]
       )
       .then((res) => res.rows[0]);
