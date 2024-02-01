@@ -4,6 +4,12 @@ const db = require("../connection");
 const seed = ({ userData }) => {
   return db
     .query(`DROP TABLE IF EXISTS users;`)
+    .then(() => {
+      return db.query(`DROP TABLE IF EXISTS auth_user;`);
+    })
+    .then(() => {
+      return db.query(`DROP TABLE IF EXISTS user_session;`);
+    })
 
     .then(() => {
       const usersTablePromise = db.query(`
@@ -14,7 +20,21 @@ const seed = ({ userData }) => {
         password VARCHAR NOT NULL
       );`);
 
-      return Promise.all([usersTablePromise]);
+      const authUserTablePromise = db.query(`
+      CREATE TABLE auth_user (
+        id TEXT PRIMARY KEY
+      );`);
+
+      const userSessionTablePromise = db.query(`
+      CREATE TABLE auth_user (
+        id TEXT PRIMARY KEY
+      );`);
+
+      return Promise.all([
+        usersTablePromise,
+        authUserTablePromise,
+        userSessionTablePromise,
+      ]);
     })
 
     .then(() => {

@@ -29,8 +29,11 @@
     "supertest": "^6.3.4"
   },
   "dependencies": {
+    "@lucia-auth/adapter-postgresql": "^3.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
+    "lucia": "^3.0.1",
+    "oslo": "^1.0.3",
     "pg": "^8.7.3"
   },
   "jest": {
