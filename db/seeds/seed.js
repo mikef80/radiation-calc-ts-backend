@@ -8,6 +8,7 @@ const seed = ({ userData }) => {
     .then(() => {
       const usersTablePromise = db.query(`
       CREATE TABLE users (
+        id SERIAL,
         firstname VARCHAR NOT NULL,
         lastname VARCHAR NOT NULL,
         email VARCHAR PRIMARY KEY,
