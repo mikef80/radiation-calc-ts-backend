@@ -1,11 +1,7 @@
-const authRouter = require("./auth-router");
+const UserController = require("../api/controllers/user-controller");
 
 const apiRouter = require("express").Router();
 
-/* apiRouter.post("/", (req, res) => {
-  console.log("request object: ", req.body);
-  res.status(200).send({ msg: `all done ${req.body.name}` });
-}); */
-apiRouter.use("/auth", authRouter);
+apiRouter.post("/register", UserController.register);
 
 module.exports = apiRouter;
