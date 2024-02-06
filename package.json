@@ -1,41 +1,13 @@
 {
-  "name": "radcalc-be",
+  "name": "radiation-calculator-ts-backend",
   "version": "1.0.0",
-  "description": "radcalc-be",
-  "main": "index.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "setup-dbs": "psql -f ./db/setup.sql",
-    "seed": "node ./db/seeds/run-seed.js",
-    "test": "jest --watch",
-    "start": "nodemon listen.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mikef80/radiation-calculator-ts-backend"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mikef80/radiation-calculator-ts-backend/issues"
-  },
-  "homepage": "https://github.com/mikef80/radiation-calculator-ts-backend#readme",
-  "devDependencies": {
-    "@types/jest": "^29.5.11",
-    "jest": "^27.5.1",
-    "jest-extended": "^2.0.0",
-    "nodemon": "^3.0.3",
-    "pg-format": "^1.0.4",
-    "supertest": "^6.3.4"
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.0",
-    "pg": "^8.7.3"
-  },
-  "jest": {
-    "setupFilesAfterEnv": [
-      "jest-extended/all"
-    ]
-  }
+  "license": "ISC"
 }

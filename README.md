@@ -1,1 +1,0 @@
-# radiation-calculator-ts-backend
